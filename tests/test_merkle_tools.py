@@ -2,7 +2,7 @@ import json
 from typing import List
 
 import pytest
-from merkletools import MerkleTools
+from solidity_merkletools import MerkleTools
 
 ADDRESS_ZERO = "0x0000000000000000000000000000000000000000"
 
