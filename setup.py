@@ -4,7 +4,7 @@ from setuptools import find_packages
 from setuptools import setup
 
 here = os.path.abspath(os.path.dirname(__file__))
-install_requires = ['pysha3>=1.0b1; python_version<"3.6"']
+install_requires = ['python_version>"3.7"']
 
 setup(
     name="solidity-merkletools",
@@ -15,12 +15,11 @@ setup(
         "Intended Audience :: Education",
         "Intended Audience :: Science/Research",
         "License :: OSI Approved :: MIT License",
-        "Programming Language :: Python :: 2.7",
-        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
         "Topic :: Software Development :: Libraries",
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
-    url="https://github.com/Tierion/pymerkletools",
+    url="https://github.com/f8n/solidity-pymerkletools",
     author="Hsu Han Ooi",
     keywords="merkle tree, blockchain",
     license="MIT",

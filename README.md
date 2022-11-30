@@ -1,33 +1,23 @@
 # pymerkletools
-[![PyPI version](https://badge.fury.io/py/merkletools.svg)](https://badge.fury.io/py/merkletools) [![Build Status](https://travis-ci.org/Tierion/pymerkletools.svg?branch=master)](https://travis-ci.org/Tierion/pymerkletools)
+[![PyPI version](https://badge.fury.io/py/merkletools.svg)](https://badge.fury.io/py/merkletools) [![Build Status](https://travis-ci.org/Tierion/pymerkletools.svg?branch=master)](https://travis-ci.org/f8n/solidity-pymerkletools)
 
-This is a Python port of [merkle-tools](https://github.com/tierion/merkle-tools).
+This is a Python port of [merkle-tools](https://github.com/tierion/merkle-tools). Then it was forked to support using Web3's solidity keccak hashing function.
 
 Tools for creating Merkle trees, generating merkle proofs, and verification of merkle proofs.
 
 ## Installation
 
 ```
-pip install merkletools
+pip install solidity-merkletools
 ```
 
 ### Create MerkleTools Object
 
 ```python
-import merkletools
+import solidity_merkletools
 
-mt = MerkleTools(hash_type="md5")  # default is sha256 
-# valid hashTypes include all crypto hash algorithms
-# such as 'MD5', 'SHA1', 'SHA224', 'SHA256', 'SHA384', 'SHA512'
-# as well as the SHA3 family of algorithms
-# including 'SHA3-224', 'SHA3-256', 'SHA3-384', and 'SHA3-512'
+mt = MerkleTools()  # default hash algorithm is Web3.solidityKeccak
 ```
-
-To use `sha3`, this module depends on [pysha3](https://pypi.python.org/pypi/pysha3). It will be installed as part of this module or you can install it manually with :
-```bash
-pip install pysha3==1.0b1
-```
-
 
 ## Methods
 
@@ -161,18 +151,5 @@ print mt.validate_proof(mt.get_proof(1), mt.get_leaf(1), mt.get_merkle_root())  
          F=Hash(A+B)    G=Hash(C+D)    E
           /     \        /     \        \
          /       \      /       \        \
+
         A         B    C         D        E
-
-
-### Development
-This module uses Python's `hashlib` for hashing. Inside a `MerkleTools` object all
-hashes are stored as Python `bytearray`. This way hashes can be concatenated simply with `+` and the result
-used as input for the hash function. But for
-simplicity and easy to use `MerkleTools` methods expect that both input and outputs are hex
-strings. We can convert from one type to the other using default Python string methods.
-For example:
-```python
-hash = hashlib.sha256('a').digest()  # '\xca\x97\x81\x12\xca\x1b\xbd\xca\xfa\xc21\xb3\x9a#\xdcM\xa7\x86\xef\xf8\x14|Nr\xb9\x80w\x85\xaf\xeeH\xbb'
-hex_string = hash.encode('hex')  # 'ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb'
-back_to_hash = hex_string.decode('hex')  # '\xca\x97\x81\x12\xca\x1b\xbd\xca\xfa\xc21\xb3\x9a#\xdcM\xa7\x86\xef\xf8\x14|Nr\xb9\x80w\x85\xaf\xeeH\xbb'
-```
