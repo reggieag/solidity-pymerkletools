@@ -4,7 +4,6 @@ from setuptools import find_packages
 from setuptools import setup
 
 here = os.path.abspath(os.path.dirname(__file__))
-install_requires = ['python_version>"3.7"']
 
 setup(
     name="solidity-merkletools",
@@ -26,5 +25,4 @@ setup(
     packages=find_packages(exclude=["tests"]),
     include_package_data=False,
     zip_safe=False,
-    install_requires=install_requires,
 )
