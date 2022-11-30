@@ -1,5 +1,5 @@
 # pymerkletools
-[![PyPI version](https://badge.fury.io/py/merkletools.svg)](https://badge.fury.io/py/merkletools) [![Build Status](https://travis-ci.org/Tierion/pymerkletools.svg?branch=master)](https://travis-ci.org/f8n/solidity-pymerkletools)
+[![PyPI version](https://badge.fury.io/py/solidity-merkletools.svg)](https://badge.fury.io/py/solidity-merkletools) [![Build Status](https://travis-ci.org/f8n/solidity-merkletools.svg?branch=main)](https://travis-ci.org/f8n/solidity-merkletools)
 
 This is a Python port of [merkle-tools](https://github.com/tierion/merkle-tools). Then it was forked to support using Web3's solidity keccak hashing function.
 
@@ -23,14 +23,11 @@ mt = MerkleTools()  # default hash algorithm is Web3.solidityKeccak
 
 ### add_leaf(value, do_hash)
 
-Adds a value as a leaf or a list of leafs to the tree. The value must be a hex string, otherwise set the optional `do_hash` to true to have your value hashed prior to being added to the tree. 
+Adds a value as a leaf or a list of leafs to the tree. The value must be a hex string.
 
 ```python
-hex_data = '05ae04314577b2783b4be98211d1b72476c59e9c413cfb2afa2f0c68e0d93911'
-list_data = ['Some text data', 'perhaps']
-
-mt.add_leaf(hex_data)
-mt.add_leaf(list_data, True)
+mt.add_leaf("0x4b39F7b0624b9dB86AD293686bc38B903142dbBc")
+mt.add_leaf("0x71b4a2d9B91726bdb5849D928967A1654D7F3de7")
 ```
 
 ### get_leaf_count()
