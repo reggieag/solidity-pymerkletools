@@ -95,12 +95,12 @@ class MerkleTools(object):
         else:
             return None
 
-    def get_proof_for_value(self, value):
+    def get_proof_for_value(self, value, value_only=False):
         idx = self.get_index(value)
         if idx is None:
             return []
 
-        return self.get_proof(idx)
+        return self.get_proof(idx, value_only)
 
     def get_proof(self, index, value_only=False):
         if self.levels is None:
